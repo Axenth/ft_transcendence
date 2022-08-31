@@ -1,0 +1,78 @@
+ // This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Status {
+  OFFLINE
+  ONLINE
+  GAME
+  WATCHING
+}
+
+enum MatchResult {
+  WINNER
+  LOSER
+  TIE
+}
+
+model Room {
+  id			Int		@id @default(autoincrement())
+  roomname		String	@unique
+  users			String	@unique
+  admins		String	@unique
+  muted			String	@unique
+  banned		String	@unique
+  password		String?
+  private		Boolean? // not sure if this should be optional or a standard to false = public
+
+  @@map("rooms")
+}
+
+model MatchHistory {
+  id            Int      @id @default(autoincrement())
+  player        User @relation(fields: [playerId], references: [id])
+  playerId      Int
+  against       String
+  playerScore   Int
+  enemyScore    Int
+  result        MatchResult
+
+  @@map("matches")
+}
+
+model User {
+  id            Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  isNickSet     Boolean  @default(false)
+  twoFactorAuth Boolean  @default(false)
+  secret        String?
+  lastSecret    BigInt?
+
+
+  email            String  @unique
+  nickname         String? @unique
+  defaultAvatar    String  
+  customAvatar     String? 
+  refreshTokenHash String?
+
+  status Status @default(OFFLINE)
+  wins   Int    @default(0)
+  losses Int    @default(0)
+  matches MatchHistory[]
+  achievements  String[]
+
+  friends         Int[]
+  blocked         Int[]
+  friendRequests  Int[]
+
+  @@map("users")
+}

@@ -1,0 +1,75 @@
+version: '3.8'
+
+services:
+  pong-api:
+    build: api
+    image: pong-api:henkies
+    container_name: pong-api
+    depends_on:
+      - pong-db
+      - pong-redis
+    ports:
+      - 3000:3000
+      - 3002:3002
+      - 3003:3003
+      - 5555:5555
+    environment:
+      - DATABASE_URL
+      - SECRET
+      - REFRESH_TOKEN_SECRET
+      - ACCESS_TOKEN_SECRET
+      - FORTYTWO_API_CLIENT_ID
+      - FORTYTWO_API_CLIENT_SECRET
+      - FRONTEND_URL
+      - BACKEND_URL
+      - REDIS_URL
+      - SENDGRIND_FROM_EMAIL
+      - SENDGRID_HOST
+      - SENDGRID_USER
+      - SENDGRID_PASS
+      - STATESECRET
+      - REDIS_CONTAINER_NAME
+    networks:
+      - app_default
+    restart: always
+
+  pong-ui:
+    build: ui
+    image: pong-ui:henkies
+    container_name: pong-ui
+    depends_on:
+      - pong-api
+    ports:
+      - 80:80
+    environment:
+      - REACT_APP_GOOGLE_CLIENT_ID
+      - BROWSER
+      - REACT_APP_API_URL
+      - REACT_APP_FRONTEND_URL
+      - REACT_APP_CALLBACK_URL
+    networks:
+      - app_default
+    restart: always
+
+  pong-db:
+    image: postgres:14.2
+    container_name: pong-db
+    environment:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
+    networks:
+      - app_default
+    restart: always
+
+  pong-redis:
+    image: redis:latest
+    container_name: pong-redis
+    networks:
+      - app_default
+    restart: always
+
+networks:
+
+  app_default:
+    driver: bridge

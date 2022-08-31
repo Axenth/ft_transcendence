@@ -1,0 +1,137 @@
+@import '../styles/constants.css';
+
+.friendlist-status {
+	background-color: var(--yellow);
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+
+}
+
+.list-item{
+	overflow-x: hidden;
+	border-radius: 5px;
+	padding: 5px;
+	background-color: var(--white);
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	align-items: center;
+	margin: 0.25rem;
+	justify-content: space-between;
+}
+
+.friend-list-item{
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	align-items: center;
+}
+
+.request-item{
+	justify-content: space-between;
+	gap:0px;
+}
+
+.friendlist-user{
+	overflow-x: hidden;
+	display: flex;
+	align-items: center;
+}
+
+.friendlist-image{
+	border-radius: 5px;
+}
+
+.friendlist-name {
+	margin-left: 5px;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+}
+
+.status-online, .green{
+	background-color: var(--green);
+}
+
+.status-offline, .red{
+	background-color: var(--red);
+}
+
+.status-spectating, .yellow{
+	background-color: var(--yellow);
+}
+
+.status-ingame, .blue{
+	background-color: var(--blue);
+}
+
+.button-hide{
+	display: none;
+}
+
+.button-hide button{
+	margin:0px;
+}
+
+.accept-green:hover{
+	background-color: var(--green);
+}
+
+.reject-red:hover{
+	background-color: var(--red);
+}
+
+.request-item:hover  .button-hide{
+	display: flex;
+	flex-direction: row;
+}
+
+.around{
+	justify-content: space-between;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:active{
+	background-color: var(--offwhite);
+	border: none;
+	color: var(--black);
+	box-shadow:none;
+	width: 25px;
+	height:25px;
+}
+
+.btn {
+	padding: 0;
+}
+
+.dropdown-item{
+	color: var(--black);
+}
+
+.dropdown-item:hover, .dropdown-item:active, .dropdown-item:focus{
+	background-color: var(--blue);
+	color: var(--white)
+}
+
+.friendlist-toast-wrapper{
+	position:absolute;
+	right: 0;
+	bottom: 0;
+	display: flex;
+    flex-direction: column;
+	margin: 2%;
+}
+
+.friendlist-toast-wrapper .toast{
+	width: 350px;
+}
+
+.toast-header{
+	justify-content: flex-end;
+	color: var(--white);
+	border-radius: 5px;
+	border: none;
+}
+
+.toast{
+	background-color: transparent;
+}

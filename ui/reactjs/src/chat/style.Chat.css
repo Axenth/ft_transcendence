@@ -1,0 +1,279 @@
+@import 'https://fonts.googleapis.com/css2?family=Exo:wght@600;700&display=swap';
+@import '../styles/constants.css';
+
+.chat-page-wrapper {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+}
+
+.create-room-form {
+	display: flex;
+	flex-direction: column;
+}
+
+.col {
+	min-width: 0;
+}
+
+.chat-input {
+	display: flex;
+}
+
+.fill {
+	display: flex;
+	align-items: center;
+}
+
+.chatbox {
+	flex: 3;
+	overflow-y: auto;
+	height: 60vh;
+}
+
+.chatbox::-webkit-scrollbar {
+	display: none;
+}
+
+.chatbox-wrapper {
+	height: 70vh;
+	display: flex;
+	flex-direction: column;
+	border-radius: 5px;
+	background: var(--offwhite);
+	padding: 20px;
+	font-family: 'Exo';
+}
+
+.pop-up {
+	position: absolute;
+	top: 80%;
+	left: 50%;
+	transform: translate(-50%, -20%);
+	width: 500px;
+	max-width: 90%;
+}
+
+.room-header {
+	background: var(--black);
+	display: table;
+	margin: 0 auto;
+	font-size: 20px;
+	padding: 10px;
+	border-radius: 5px;
+	color: var(--offwhite);
+	font-weight: bold;
+}
+
+.message-block>li {
+	word-break: break-word;
+	background: var(--white);
+	display: inline-block;
+	padding: 0.5rem 0.5rem;
+	margin: 0.2rem;
+	border-radius: 5px;
+	font-weight: 600;
+	font-family: Exo;
+}
+
+.message-block {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.message-body {
+	font-size: 16px;
+	padding: 0px 5px;
+}
+
+.message-header {
+	color: #E2E4E5;
+	background-color: var(--blue) !important;
+	font-size: 12px;
+}
+
+.message-input {
+	border-radius: 5px;
+	border: none;
+	flex-grow: 1;
+	margin: 0.25rem;
+	font-family: Exo;
+	padding-left: 5px;
+}
+
+.submit-button {
+	background: #3A3335;
+	border: none;
+	padding: 0 1rem;
+	margin: 0.25rem;
+	border-radius: 3px;
+	outline: none;
+	color: #fff;
+}
+
+.toast-body {
+	font-family: Exo;
+	text-align: center;
+}
+
+.toast {
+	width: 100%;
+	display: inline-block;
+	font-size: 1rem;
+}
+
+.room-button {
+	color: var(--black);
+	background-color: var(--white);
+	border-radius: 5px;
+	border-color: transparent;
+	border-width: 0px;
+}
+
+.room-button:focus {
+	background-color: var(--black);
+	color: var(--offwhite);
+}
+
+.nav-tabs .nav-link.active {
+	color: var(--white);
+	background-color: var(--yellow);
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.nav-tabs .nav-link {
+	background-color: var(--white);
+	color: var(--black);
+
+}
+
+.match-making {
+	background-color: var(--white);
+	color: var(--black);
+
+}
+
+.nav-fill .nav-item {
+	padding: 3px;
+}
+
+.room-list {
+	display: flex;
+	flex-direction: column;
+	overflow-y: auto;
+}
+
+label {
+	color: var(--black);
+	margin: 0.25rem;
+	margin-top: 20px;
+}
+
+button {
+	border: none;
+	border-radius: 5px;
+	margin: 3px;
+	/* overflow: hidden; */
+	text-overflow: ellipsis;
+}
+
+button:hover {
+	background-color: var(--yellow);
+	color: var(--white);
+}
+
+.button-select {
+	background-color: var(--yellow);
+	color: var(--white);
+}
+
+.tab-content {
+	display: flex;
+	overflow-y: auto;
+}
+
+.tab-content>.active {
+	display: flex;
+	flex-grow: 1;
+	flex-direction: column;
+	min-width: 0;
+}
+
+.text-overflow {
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.room-info {
+	max-width: 250px;
+}
+
+@media only screen and (max-width: 992px) {
+	.room-info {
+		max-width: 100%;
+	}
+}
+
+.room-info-header {
+	padding: 5px;
+	font-size: 18px;
+	line-height: normal;
+	background-color: var(--black);
+	border-radius: 5px;
+	color: var(--white)
+}
+
+.room-info-list {
+	font-size: 16px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.room-info-list-item {
+	line-height: normal;
+	margin: 5px;
+	border-radius: 5px;
+	padding: 4px;
+	width: fit-content;
+	background-color: var(--white);
+}
+
+.overflow {
+	overflow: auto;
+}
+
+.static-room-info {
+	background-color: var(--white);
+	margin-top: 15px;
+	padding: 3px;
+	display: flex;
+	flex-direction: column;
+	border-radius: 5px;
+}
+
+.static-room-info label {
+	margin: auto;
+}
+
+.new-pw {
+	background-color: var(--blue);
+	color: var(--offwhite);
+	margin: auto;
+}
+
+.modal-content {
+	font-family: exo;
+	background-color: var(--offwhite);
+}
+
+.rooms-action-block {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+}
