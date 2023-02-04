@@ -61,7 +61,7 @@ For example there is a login option for google that is currently unused
 
 # Credits
 The following people are responsible for this project in no particular order:
-* Isaac Donado - https://github.com/IsaacDonado-TomTom
+* Isaac Donado - https://github.com/donadoio
 * Max Camps - https://github.com/m-camps
 * Raoul Verschoor - https://github.com/Raoulv48
 * Jordi Lensing - https://github.com/Axenth
